@@ -1,0 +1,10 @@
+<div class="container">
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <h3>{{ post.title }} - 삭제하기</h3>
+            정말 삭제하시겠습니까?<br>
+            <button>삭제</button>
+        </form>
+    </div>
+</div>

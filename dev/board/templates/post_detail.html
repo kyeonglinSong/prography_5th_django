@@ -11,5 +11,10 @@
             {{ post.created_date }} <br><br>
             {{ post.text }}<br>
         </div>
+        <div>
+            <button><a href="/post/{{ post.pk }}/edit">글 수정</a></button>
+            <button><a href="/post/{{ post.pk }}/delete">글 삭제</a></button>
+            <button><a href="/">목록으로</a></button>
+        </div>
     </body>
 </html>

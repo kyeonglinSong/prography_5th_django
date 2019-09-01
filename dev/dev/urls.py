@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from board.views import main, post_detail
+from board.views import main, post_detail, make_post, edit_post, delete_post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main),
-    path('<pk>/', post_detail)
+    path('post/<int:pk>/', post_detail),
+    path('post/make/', make_post),
+    path('post/<int:pk>/delete/', delete_post),
+    path('post/<int:pk>/edit/', edit_post),
+
 ]
