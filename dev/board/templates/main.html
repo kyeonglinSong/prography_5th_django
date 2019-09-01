@@ -1,1 +1,14 @@
-여기다가 게시글 리스트 보여줄거
+<h1>board</h1>
+
+<br><br><br>
+
+<div class="container">
+    {% for post in posts %}
+    <div class="Post list">
+        <a href="/{{ post.pk }}">{{ post.title }}</a><br>
+        {{ post.author }}
+        {{ post.created_date }}
+    </div>
+    <br><br>
+    {% endfor %}
+</div>
