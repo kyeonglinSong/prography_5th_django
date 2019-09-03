@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>post detail</title>
+        <title>{{ post.title }}</title>
+        <style>
+            body{
+                padding-left: 20px;
+            }
+            #content{
+                padding-top: 30px;
+                padding-bottom: 50px;
+            }
+        </style>
     </head>
     <body>
         <div>
-            {{ post.title }} <br><br>
-            {{ post.author }} <br>
-            {{ post.created_date }} <br><br>
-            {{ post.text }}<br>
+            <h2>{{ post.title }}</h2>
+            <div>
+                {{ post.created_date }}
+            </div>
+            <div id="content">
+                {{ post.text }}
+            </div>
         </div>
         <div>
             <button><a href="/post/{{ post.pk }}/edit">글 수정</a></button>

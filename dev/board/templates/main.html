@@ -1,18 +1,33 @@
-<h1>board</h1>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ post.title }}</title>
+        <style>
+            body{
+                padding-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="title">
+             <h1>board</h1><br><br><br>
+        </div>
+        <div class="container">
+            {% for post in posts %}
+            <div class="Post list">
+                <a href="/post/{{ post.pk }}">{{ post.title }}</a><br>
+                {{ post.author }}
+                {{ post.created_date }}
+            </div>
+            <br><br>
+            {% endfor %}
+        </div>
 
-<br><br><br>
+        <div>
+            <button><a href="/post/make">글쓰기</a></button>
+        </div>
+    </body>
+</html>
 
-<div class="container">
-    {% for post in posts %}
-    <div class="Post list">
-        <a href="/post/{{ post.pk }}">{{ post.title }}</a><br>
-        {{ post.author }}
-        {{ post.created_date }}
-    </div>
-    <br><br>
-    {% endfor %}
-</div>
 
-<div>
-    <button><a href="/post/make">글쓰기</a></button>
-</div>
