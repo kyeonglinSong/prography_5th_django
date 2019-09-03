@@ -5,12 +5,12 @@ from .forms import PostForm, CommentForm
 
 def main(request):
     posts = Post.objects.all().order_by('-created_date')
-    return render(request, 'main.html', {'posts': posts})
+    return render(request, 'board/main.html', {'posts': posts})
 
 
 def post_detail(request, pk):
     post = Post.objects.get(pk=pk)
-    return render(request, 'post_detail.html', {'post': post})
+    return render(request, 'board/post_detail.html', {'post': post})
 
 
 def make_post(request):
@@ -23,7 +23,7 @@ def make_post(request):
             return redirect(f'/post/{post.pk}')
     else:
         form = PostForm()
-    return render(request, 'make_post.html', {'form': form})
+    return render(request, 'board/make_post.html', {'form': form})
 
 
 def edit_post(request, pk):
@@ -37,7 +37,7 @@ def edit_post(request, pk):
             return redirect(f'/post/{post.pk}')
     else:
         form = PostForm(instance=post)
-    return render(request, 'edit_post.html', {'form': form})
+    return render(request, 'board/edit_post.html', {'form': form})
 
 
 def delete_post(request, pk):
@@ -46,7 +46,7 @@ def delete_post(request, pk):
     if request.method == 'POST':
         post.delete()
         return redirect('/')
-    return render(request, 'delete_post.html', {'post': post})
+    return render(request, 'board/delete_post.html', {'post': post})
 
 
 def add_comment(request, pk):
@@ -60,4 +60,4 @@ def add_comment(request, pk):
             return redirect(f'/post/{post.pk}')
     else:
         form = CommentForm()
-    return render(request, 'add_comment.html', {'form': form})
+    return render(request, 'board/add_comment.html', {'form': form})

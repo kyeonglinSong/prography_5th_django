@@ -23,7 +23,7 @@
                 {{ post.text }}
             </div>
         </div>
-        <a href="/post/{{ post.pk }}/comment">댓글 작성</a>
+        <a href="/post/{{ post.pk }}/comment">댓글 작성 ({{ post.comments.count }})</a>
         {% for comment in post.comments.all %}
         <div class="comment">
             <div>{{ comment.created_date }}</div>
