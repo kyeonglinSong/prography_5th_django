@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from board.views import main, post_detail, make_post, edit_post, delete_post
+from board.views import main, post_detail, make_post, edit_post, delete_post, add_comment
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('post/make/', make_post),
     path('post/<int:pk>/delete/', delete_post),
     path('post/<int:pk>/edit/', edit_post),
+    path('post/<int:pk>/comment', add_comment),
 
 ]

@@ -23,6 +23,17 @@
                 {{ post.text }}
             </div>
         </div>
+        <a href="/post/{{ post.pk }}/comment">댓글 작성</a>
+        {% for comment in post.comments.all %}
+        <div class="comment">
+            <div>{{ comment.created_date }}</div>
+            <h4>{{ comment.author }}</h4>
+            <p>{{ comment.text|linebreaks }}</p>
+            ----------------------------------------
+        </div>
+        {% empty %}
+            <p> 댓글이 없습니다. </p>
+        {% endfor %}
         <div>
             <button><a href="/post/{{ post.pk }}/edit">글 수정</a></button>
             <button><a href="/post/{{ post.pk }}/delete">글 삭제</a></button>

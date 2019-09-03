@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ post.title }}</title>
+        <style>
+            body{
+                padding-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+           {% block content %}
+            <h1>댓글 작성</h1>
+                <form method="POST" class="post-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                 <button type="submit" class="save btn btn-default">등록</button>
+             </form>
+            {% endblock %}
+        </div>
+    </body>
+</html>
+
+
+
+
+
